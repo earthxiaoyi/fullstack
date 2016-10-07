@@ -1,0 +1,89 @@
+1 分析Collection接口以及其子接口，很通俗的方式说说，究竟有哪些类型的Collection，各自解决什么样的问题
+BeanContext,
+BeanContextServices,
+BlockingDeque<E>,
+BlockingQueue<E>,
+Deque<E>,
+List<E>,
+NavigableSet<E>,
+Queue<E>,
+Set<E>,
+SortedSet<E>
+
+2 TreeSet继承了什么Set，与HashSet的区别是？HashSet与HashTable是“一脉相承”的么？
+TreeSet继承了AbstractSet。
+HashSet有以下特点：
+1.不能保证元素有序性；
+2.非线程安全的；
+3.集合元素可以是null，但只能放入一个null；
+4.哈希表实现
+TreeSet有以下特点：
+1.保证元素有序性。支持两种方式排序：自然排序和定制排序。默认是自然排序，自然排序使用的Comparable接口，定制排序使用的是Comparator接口
+2.不允许出现null值
+3.二叉树实现
+
+
+3 Queue接口增加了哪些方法，这些方法的作用和区别是？
+有如下方法：
+add     成功时返回true，如果队列不可用，则抛出异常
+offer   插入成功返回true，插入失败返回false
+remove  获取并移除队列的头部。如果队列为null，抛出异常
+poll    获取并移除队列的头部。如果队列为null，则返回null
+element 获取但不移除队列的头部。如果队列为null，抛出异常
+peek    获取但不移除队列的头部。如果队列为null，则返回null
+
+4 LinkedList也是一种Queue么？是否是双向链表?
+LinkedList是一种Queue。它实现了Dequeue接口，Dequeue它继承Queue接口，而Dequeue接口是一个双端队列。
+LinkedList是双端队列链表的实现。
+
+5 Java数组如何与Collection相互转换
+使用Arrays类里面的asList方法。
+6 Map的一级子接口有哪些种类，分别用作什么目的？
+Bindings,
+ConcurrentMap<K,V>          并发map
+ConcurrentNavigableMap<K,V>
+LogicalMessageContext,
+MessageContext,
+NavigableMap<K,V>,
+SOAPMessageContext,
+SortedMap<K,V>              键有序的集合
+
+7 HashSet 与HashMap中放入的自定义对象必须要实现哪些方法，说明原因
+用作Map键的对象必须实现hashCode、equals方法。
+HashSet、HashMap的数据结构是基于数组和链表的。
+他们都是使用hash表来存储元素的，在添加自定义对象的时候会调用对象的hashCode方法进行hash，当hash返回的地址没有被占用的时候
+就直接存放元素。如果重复时，会调用equals方法来进行比较，只有equals返回false才会进行插入操作（不同的对象相同的hashCode值会让存储结构由数组变为链表）。
+使用hashCode进行对象是否重复的判断还有个好处是：不需要取Hash表中的所有元素进行equals比较，只有hashCode重复了才会进行equals比较，这样大大提高了性能。
+http://blog.sina.com.cn/s/blog_494755fb0101g4kn.html
+http://blog.csdn.net/fyxxq/article/details/42066843
+
+8 TreeSet里的自定义对象必须要实现什么方法，说明原因
+实现Comparable接口并重写compareTo()方法，因为TreeSet是通过compareTo()方法进行比较排除重复元素的。
+
+9 LinkedHashMap使用什么来保存数据，其效率与HashMap相比如何？它又有什么独特特性
+双向链表。
+由于使用了双向链表增加了维护链表的开支，插入、查找性能比HashMap低，迭代可能比HashMap快点。
+LinkedHashMap特性：里面存储的元素是按插入顺序排列的。
+
+10 IdentityHashMap 里面如果按照下面的方法放入对象，分别是什么结果，请解释原因
+        Integer a=5;
+        Integer b=5;
+        map.put(a,"100");
+        map.put(b,"100";
+        System.out.println(map.size);
+        map.clear();
+       Integer a=Integer.MAX_VALUE-1;
+       Integer b=Integer.MAX_VALUE-1;
+       map.put(a,"100");
+        map.put(b,"100";
+        System.out.println(map.size);
+IdentityHashMap比较键、值是使用引用相等性代替对象相等性的（==取代equals）
+Integer这种包装类型有一个值范围是 -128 - 127的缓存池，只要值是这个范围他们的引用都是相等的。
+所以IdentityHashMap会去重，只能存放一个
+而
+Integer a=Integer.MAX_VALUE-1;
+Integer b=Integer.MAX_VALUE-1;
+是两个不同的对象，所以IdentityHashMap可以存放两个a、b对象
+
+加分题，
+给出ＪＤＫ　１.８的java 集合框架全图谱（Class类图）， 并标明1.7与1.8里出现的新的类，解释其目的
