@@ -1,0 +1,29 @@
+单线程：
+生成文件耗时：4922
+names : wq values : SalaryCount{name='wq', SlaryAdd=115034400, numbers=15102}
+names : yx values : SalaryCount{name='yx', SlaryAdd=115018400, numbers=15052}
+names : sq values : SalaryCount{name='sq', SlaryAdd=114982400, numbers=15054}
+names : jg values : SalaryCount{name='jg', SlaryAdd=114940800, numbers=15058}
+names : km values : SalaryCount{name='km', SlaryAdd=114900800, numbers=15031}
+names : cq values : SalaryCount{name='cq', SlaryAdd=114882400, numbers=15013}
+names : lu values : SalaryCount{name='lu', SlaryAdd=114880800, numbers=14988}
+names : la values : SalaryCount{name='la', SlaryAdd=114875200, numbers=15032}
+names : pm values : SalaryCount{name='pm', SlaryAdd=114787200, numbers=15065}
+names : jw values : SalaryCount{name='jw', SlaryAdd=114752800, numbers=14908}
+耗时：24357
+
+多线程：
+生成文件耗时：4644
+读取文件耗时：19249
+names : op values : SalaryCount{name='op', SlaryAdd=117014400, numbers=15259}
+names : go values : SalaryCount{name='go', SlaryAdd=115659200, numbers=15191}
+names : dg values : SalaryCount{name='dg', SlaryAdd=115632800, numbers=15180}
+names : uw values : SalaryCount{name='uw', SlaryAdd=115567200, numbers=15043}
+names : rx values : SalaryCount{name='rx', SlaryAdd=115420000, numbers=15030}
+names : je values : SalaryCount{name='je', SlaryAdd=115151200, numbers=15002}
+names : gh values : SalaryCount{name='gh', SlaryAdd=115134400, numbers=15088}
+names : ko values : SalaryCount{name='ko', SlaryAdd=114976000, numbers=15097}
+names : ug values : SalaryCount{name='ug', SlaryAdd=114952000, numbers=15015}
+names : gt values : SalaryCount{name='gt', SlaryAdd=114879200, numbers=15009}
+数据处理、汇总、排序输出耗时：1701
+
