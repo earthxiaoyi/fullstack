@@ -7,6 +7,7 @@
 	{
 		System.out.println("faield");
 	}
+	SynchronousQueue 阻塞队列的每次插入操作必须等待另外一个线程的移除操作，
 2  用线程池框架或者fork-jion框架实现一个并发的文件内容查找接口：
     public SearchResult searchInFiles(String key);
     查询指定目录下的所有txt或者java文件（建议查找Java工程文件）
